@@ -12,10 +12,12 @@ document.querySelectorAll('[data-mode]').forEach(button => button.addEventListen
   link.textContent = `Download ${mode.label} ↓`;
 }));
 const panels = [...document.querySelectorAll('.panel')];
+const hero = document.querySelector('.hero');
 function showSection(scrollToSection = false) {
   const requested = location.hash.slice(1);
   const active = panels.find(panel => panel.id === requested) || panels[0];
   panels.forEach(panel => { panel.hidden = panel !== active; });
+  hero.hidden = active.id !== 'about';
   document.querySelectorAll('.tabs a').forEach(link => {
     if (link.hash === `#${active.id}`) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
@@ -23,7 +25,8 @@ function showSection(scrollToSection = false) {
   if (scrollToSection) {
     active.setAttribute('tabindex', '-1');
     active.focus({ preventScroll: true });
-    active.scrollIntoView({ block: 'start' });
+    const destination = active.id === 'about' ? hero : active;
+    destination.scrollIntoView({ block: 'start' });
   }
 }
 document.querySelectorAll('.tabs a, .brand').forEach(link => {
