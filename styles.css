@@ -3,4 +3,4 @@
 
 .hero[hidden]{display:none}.hero{scroll-margin-top:75px}
 
-.media-item{grid-template-columns:1fr}.beyond{border-top:1px solid #ced5c9;padding:25px 0 35px}.beyond h2{font-size:24px;margin:0 0 10px}.beyond p,.beyond a{font-size:13px}.beyond p{margin:0 0 12px}@media(max-width:760px){.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px}.tabs a{text-align:center;padding:10px 0}.panel,.hero{scroll-margin-top:110px}}
+.media-cards h3 a{font-size:inherit;text-decoration:none}.media-cards h3 a:hover{text-decoration:underline}.media-cards .eyebrow{font-size:11px}@media(max-width:760px){.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px}.tabs a{text-align:center;padding:10px 0}.panel,.hero{scroll-margin-top:155px}}
