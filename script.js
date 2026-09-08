@@ -12,14 +12,28 @@ document.querySelectorAll('[data-mode]').forEach(button => button.addEventListen
   link.textContent = `Download ${mode.label} ↓`;
 }));
 const panels = [...document.querySelectorAll('.panel')];
-function showSection() {
+function showSection(scrollToSection = false) {
   const requested = location.hash.slice(1);
-  const active = panels.some(panel => panel.id === requested) ? requested : 'about';
-  panels.forEach(panel => { panel.hidden = panel.id !== active; });
+  const active = panels.find(panel => panel.id === requested) || panels[0];
+  panels.forEach(panel => { panel.hidden = panel !== active; });
   document.querySelectorAll('.tabs a').forEach(link => {
-    if (link.hash === `#${active}`) link.setAttribute('aria-current', 'page');
+    if (link.hash === `#${active.id}`) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
+  if (scrollToSection) {
+    active.setAttribute('tabindex', '-1');
+    active.focus({ preventScroll: true });
+    active.scrollIntoView({ block: 'start' });
+  }
 }
-window.addEventListener('hashchange', showSection);
-showSection();
+document.querySelectorAll('.tabs a, .brand').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+    showSection(true);
+  });
+});
+window.addEventListener('hashchange', () => showSection(true));
+window.addEventListener('popstate', () => showSection(true));
+showSection(Boolean(location.hash));
