@@ -1,5 +1,5 @@
 const modes = {
-  academic: { intro: "I study how remote sensing and machine learning can improve forest measurements and monitoring. I’m a Ph.D. Candidate in Forestry at Virginia Tech, concurrently completing an M.Eng. in Computer Science.", file: "Academic_CV", label: "academic CV", angle: "Research perspective: connect seedling detection with repeatable regeneration monitoring." },
+  academic: { intro: "I combine forest measurement, remote sensing, and machine learning to improve how forests are inventoried and monitored. I am a Ph.D. Candidate in Forestry at Virginia Tech, expected December 2026, and concurrently pursuing an M.Eng. in Computer Science.", file: "Academic_CV", label: "academic CV", angle: "Research perspective: connect seedling detection with repeatable regeneration monitoring." },
   industry: { intro: "I build Python and R workflows that turn UAV imagery, LiDAR, and field data into useful forest monitoring outputs. My background brings together geospatial analysis, machine learning, and hands-on forestry research.", file: "Industry_Resume", label: "industry resume", angle: "Industry perspective: automate image inference and turn detection outputs into structured reports." }
 };
 document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
@@ -29,7 +29,7 @@ function showSection(scrollToSection = false) {
     destination.scrollIntoView({ block: 'start' });
   }
 }
-document.querySelectorAll('.tabs a, .brand').forEach(link => {
+document.querySelectorAll('.tabs a, .brand, [data-section-link]').forEach(link => {
   link.addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();

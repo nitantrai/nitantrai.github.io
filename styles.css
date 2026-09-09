@@ -4,3 +4,5 @@
 .hero[hidden]{display:none}.hero{scroll-margin-top:75px}
 
 .media-cards h3 a{font-size:inherit;text-decoration:none}.media-cards h3 a:hover{text-decoration:underline}.media-cards .eyebrow{font-size:11px}@media(max-width:760px){.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px}.tabs a{text-align:center;padding:10px 0}.panel,.hero{scroll-margin-top:155px}}
+
+.professional-identity{font-size:18px;font-weight:700;color:#20392d;margin:20px 0 12px}.tool-group{margin-bottom:20px}.tool-group h4{font-size:13px;line-height:1.5;margin:0 0 9px}.project-cards{grid-template-columns:repeat(2,1fr);margin-top:25px}.research-status{font-size:13px;border-top:1px solid #cbd5c2;padding-top:14px}footer{flex-wrap:wrap}@media(max-width:760px){.project-cards{grid-template-columns:1fr}}
